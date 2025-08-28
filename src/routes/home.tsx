@@ -5,14 +5,14 @@ import { Sparkles } from "lucide-react";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
 
-// 👇 1. Import all your images at the top of the file
-import heroImage from "@/assets/img/hero.jpg";
-import officeImage from "@/assets/img/office.jpg";
-import firebaseLogo from "@/assets/img/logo/firebase.png";
-import meetLogo from "@/assets/img/logo/meet.png";
-import zoomLogo from "@/assets/img/logo/zoom.png";
-import microsoftLogo from "@/assets/img/logo/microsoft.png";
-import tailwindcssLogo from "@/assets/img/logo/tailwindcss.png";
+// 👇 The '/img' part has been removed from these paths
+import heroImage from "@/assets/hero.jpg";
+import officeImage from "@/assets/office.jpg";
+import firebaseLogo from "@/assets/logo/firebase.png";
+import meetLogo from "@/assets/logo/meet.png";
+import zoomLogo from "@/assets/logo/zoom.png";
+import microsoftLogo from "@/assets/logo/microsoft.png";
+import tailwindcssLogo from "@/assets/logo/tailwindcss.png";
 
 const HomePage = () => {
   return (
@@ -54,7 +54,6 @@ const HomePage = () => {
 
         {/* image section */}
         <div className="w-full mt-4 rounded-xl bg-gray-100 h-[420px] drop-shadow-md overflow-hidden relative">
-          {/* 👇 2. Use the imported variables for your images */}
           <img
             src={heroImage}
             alt="An interview setting"
