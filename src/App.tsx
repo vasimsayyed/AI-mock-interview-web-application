@@ -40,7 +40,7 @@ const App = () => {
         >
           {/* add all the protect routes */}
           <Route element={<Generate />} path="/generate">
-            <Route index element={<Dashboard />} />
+            <Route index element={<Dashboard/> } />
             <Route path=":interviewId" element={<CreateEditPage />} />
             <Route path="interview/:interviewId" element={<MockLoadPage />} />
             <Route
