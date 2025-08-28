@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { ClerkProvider } from '@clerk/clerk-react'
+import { BrowserRouter } from 'react-router-dom' // 👈 1. Import BrowserRouter
 
 import './index.css'
 import App from './App.tsx'
@@ -14,8 +15,11 @@ if (!PUBLISHABLE_KEY) {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-   <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl='/'>
-      <App />
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
+      {/* 👇 2. Wrap your App component to fix routing */}
+      <BrowserRouter basename="/AI-mock-interview-web-application/">
+        <App />
+      </BrowserRouter>
     </ClerkProvider>
   </StrictMode>,
 )
