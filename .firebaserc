@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "ai-mock-interview-yt-react-ts",
+    "staging": "ai-mock-interview-react-a2910"
+  },
+  "targets": {},
+  "etags": {}
+}
