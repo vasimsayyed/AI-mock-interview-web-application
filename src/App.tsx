@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import { PublicLayout } from "@/layouts/public-layout";
 import AuthenticationLayout from "@/layouts/auth-layout";
@@ -17,41 +17,40 @@ import { Feedback } from "./routes/feedback";
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        {/* public routes */}
-        <Route element={<PublicLayout />}>
-          <Route index element={<HomePage />} />
-        </Route>
+    // The extra <Router> component has been removed from this file.
+    <Routes>
+      {/* public routes */}
+      <Route element={<PublicLayout />}>
+        <Route index element={<HomePage />} />
+      </Route>
 
-        {/* authentication layout */}
-        <Route element={<AuthenticationLayout />}>
-          <Route path="/signin/*" element={<SignInPage />} />
-          <Route path="/signup/*" element={<SignUpPage />} />
-        </Route>
+      {/* authentication layout */}
+      <Route element={<AuthenticationLayout />}>
+        <Route path="/signin/*" element={<SignInPage />} />
+        <Route path="/signup/*" element={<SignUpPage />} />
+      </Route>
 
-        {/* protected routes */}
-        <Route
-          element={
-            <ProtectRoutes>
-              <MainLayout />
-            </ProtectRoutes>
-          }
-        >
-          {/* add all the protect routes */}
-          <Route element={<Generate />} path="/generate">
-            <Route index element={<Dashboard/> } />
-            <Route path=":interviewId" element={<CreateEditPage />} />
-            <Route path="interview/:interviewId" element={<MockLoadPage />} />
-            <Route
-              path="interview/:interviewId/start"
-              element={<MockInterviewPage />}
-            />
-            <Route path="feedback/:interviewId" element={<Feedback />} />
-          </Route>
+      {/* protected routes */}
+      <Route
+        element={
+          <ProtectRoutes>
+            <MainLayout />
+          </ProtectRoutes>
+        }
+      >
+        {/* add all the protect routes */}
+        <Route element={<Generate />} path="/generate">
+          <Route index element={<Dashboard />} />
+          <Route path=":interviewId" element={<CreateEditPage />} />
+          <Route path="interview/:interviewId" element={<MockLoadPage />} />
+          <Route
+            path="interview/:interviewId/start"
+            element={<MockInterviewPage />}
+          />
+          <Route path="feedback/:interviewId" element={<Feedback />} />
         </Route>
-      </Routes>
-    </Router>
+      </Route>
+    </Routes>
   );
 };
 
